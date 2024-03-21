@@ -66,35 +66,43 @@ public class Shop {
 		System.out.println("회원가입 완료");
 	}
 	
-	
+	private void login() {
+		String id = inputString("아이디");
+		String password = inputString("비밀번호");
+		
+		if(userManager.findUserLogin(id, password) == -1) {
+			System.err.println("아이디/비밀번호가 틀렸습니다.");
+			return;
+		}
+		
+		log = userManager.findIndexById(id);
+		
+	}
 	private void selectMenu() {
 		int select = inputNumber("메뉴");
 		
 		if(log == IS_LOGGED_IN) {
-			if(select == SIGN_UP) {
+			if(select == SIGN_UP)
 				signUp();
-			}else if(select == LOG_IN) {
+			else if(select == LOG_IN)
 				login();
-			}
+		}else if(log == IS_LOGIN_ADMIN) {
+			if(select == ADD_ITEM)
+				addItem();
+			else if(select == DELETE_ITEM)
+				deleteItem();
+			else if(select == UPDATE_ITEM)
+				updateITEM();
 			
 		}else if(log != IS_LOGGED_IN) {
-			if(select == LEAVE) {
+			if(select == LEAVE) 
 				leave();
-			}else if(select == SHOPPING) {
+			else if(select == SHOPPING) 
 				shopping();
-			}else if(select == MY_PAGE) {
+			else if(select == MY_PAGE)
 				myPage();
-			}else if(select == LOG_OUT) {
+			else if(select == LOG_OUT)
 				logout();
-			}
-		}else if(log == IS_LOGIN_ADMIN) {
-			if(select == ADD_ITEM) {
-				addItem();
-			}else if(select == DELETE_ITEM) {
-				deleteItem();
-			}else if(select == UPDATE_ITEM) {
-				updateITEM();
-			}
 		}
 	}
 	
