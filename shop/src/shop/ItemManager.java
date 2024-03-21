@@ -20,6 +20,13 @@ public class ItemManager {
 		
 		return true;
 	}
+	
+	public void printAllItem() {
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(i + "번" + list.get(i));
+		}
+	}
+	
 
 	public void createItem(String name, String brand, int price) {
 		if(checkItem(name, brand)) {
