@@ -39,5 +39,15 @@ public class ItemManager {
 		}
 	}
 	
+	public void deleteItem(int idx) {
+		if(idx < 0 || idx >= list.size()) {
+			System.err.println("유효하지않은 인덱스입니다.");
+			return;
+		}
+		
+		list.remove(idx);
+		System.out.println("아이템 삭제 완료");
+	}
+	
 	
 }
