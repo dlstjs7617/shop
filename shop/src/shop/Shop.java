@@ -88,6 +88,14 @@ public class Shop {
 		itemManager.createItem(name, brand, price);
 	}
 	
+	private void deleteItem() {
+		itemManager.printAllItem();
+		int index = inputNumber("삭제할 상품 인덱스");
+		
+		itemManager.deleteItem(index);
+
+	}
+	
 	private void leave() {
 		userManager.deleteUser(log);
 		log = IS_LOGGED_IN;
@@ -110,8 +118,8 @@ public class Shop {
 		}else if(log == IS_LOGIN_ADMIN) {
 			if(select == ADD_ITEM)
 				addItem();
-//			else if(select == DELETE_ITEM)
-//				deleteItem();
+			else if(select == DELETE_ITEM)
+				deleteItem();
 //			else if(select == UPDATE_ITEM)
 //				updateITEM();
 			else if(select == LOG_OUT)
