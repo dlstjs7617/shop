@@ -26,6 +26,13 @@ public class Shop {
 
 	private String brand;
 	private int log;
+
+	public Shop(String brand) {
+		this.brand = brand;
+		userManager = new UserManager();
+		itemManager = new ItemManager();
+		log = -1;
+	}
 	
 	private int inputNumber(String message) {
 		int number = -1;
@@ -44,12 +51,6 @@ public class Shop {
 	private String inputString(String message) {
 		System.out.print(message + " : ");
 		return sc.next();
-	}
-	
-	public Shop(String brand) {
-		this.brand = brand;
-		userManager = new UserManager();
-		itemManager = new ItemManager(); 
 	}
 	
 	private void signUp() {
@@ -78,6 +79,13 @@ public class Shop {
 		log = userManager.findIndexById(id);
 		
 	}
+	
+	private void leave() {
+		log = -1;
+		
+		System.out.println("회원 탈퇴 완료");
+	}
+	
 	private void selectMenu() {
 		int select = inputNumber("메뉴");
 		
@@ -87,38 +95,41 @@ public class Shop {
 			else if(select == LOG_IN)
 				login();
 		}else if(log == IS_LOGIN_ADMIN) {
-			if(select == ADD_ITEM)
-				addItem();
-			else if(select == DELETE_ITEM)
-				deleteItem();
-			else if(select == UPDATE_ITEM)
-				updateITEM();
-			
+//			if(select == ADD_ITEM)
+//				addItem();
+//			else if(select == DELETE_ITEM)
+//				deleteItem();
+//			else if(select == UPDATE_ITEM)
+//				updateITEM();
+//			else if(select == LOG_OUT)
+//				logout();
+//			
 		}else if(log != IS_LOGGED_IN) {
 			if(select == LEAVE) 
 				leave();
-			else if(select == SHOPPING) 
-				shopping();
-			else if(select == MY_PAGE)
-				myPage();
-			else if(select == LOG_OUT)
-				logout();
+//			else if(select == SHOPPING) 
+//				shopping();
+//			else if(select == MY_PAGE)
+//				myPage();
+//			else if(select == LOG_OUT)
+//				logout();
 		}
 	}
 	
 	private void printMenu() {
 		if(log == IS_LOGGED_IN) {
 			System.out.println("1.회원가입");
-			System.out.println("2.로그인");			
+			System.out.println("2.로그인");
+		}else if(log == IS_LOGIN_ADMIN) {
+			System.out.println("1.아이템등록");
+			System.out.println("2.아이템삭제");
+			System.out.println("3.아이템수정");
+			System.out.println("4.로그아웃");
 		}else if(log != IS_LOGGED_IN) {
 			System.out.println("1.탈퇴");
 			System.out.println("2.쇼핑하기");
 			System.out.println("3.마이페이지");
 			System.out.println("4.로그아웃");
-		}else if(log == IS_LOGIN_ADMIN) {
-			System.out.println("1.아이템등록");
-			System.out.println("2.아이템삭제");
-			System.out.println("3.아이템수정");
 		}
 	}
 	
@@ -128,7 +139,7 @@ public class Shop {
 	private void shopRun() {
 		while(isRun()) {
 			printMenu();
-			
+			selectMenu();
 		}
 	}
 	

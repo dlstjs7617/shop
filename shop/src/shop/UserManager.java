@@ -61,5 +61,8 @@ public class UserManager {
 		//
 	}
 	
+	public void deleteUser(int log) {
+		list.remove(log);
+	}
 	
 }
