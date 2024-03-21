@@ -24,6 +24,9 @@ public class Item {
 		return price;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return String.format("%s(%s) : %d", name,brand,price);
+	}
 	
 }
