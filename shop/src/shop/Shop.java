@@ -52,6 +52,21 @@ public class Shop {
 		itemManager = new ItemManager(); 
 	}
 	
+	private void signUp() {
+		String id = inputString("아이디");
+		if(userManager.findIndexById(id) != -1) {
+			System.err.println("이미 존재하는 아이디입니다.");
+			return;
+		}
+		
+		String password = inputString("비밀번호");
+		String name = inputString("이름");
+		
+		userManager.createUser(name, id, password);
+		System.out.println("회원가입 완료");
+	}
+	
+	
 	private void selectMenu() {
 		int select = inputNumber("메뉴");
 		
