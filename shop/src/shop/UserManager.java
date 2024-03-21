@@ -12,15 +12,27 @@ public class UserManager {
 	}
 	
 	
-	private int findIndexById(String id) {
+	public int findIndexById(String id) {
 		for(int i=0; i<list.size(); i++) {
-			User temp = list.get(i);
+			User user = list.get(i);
 			if(temp.getId().equals(id))
 				return i;
 		}
 		
 		return -1;
 	}
+	
+	public int findUserLogin(String id, String password) {
+		for(int i=0; i<list.size(); i++) {
+			User user = list.get(i);
+			
+			if(user.getId().equals(id) && user.getPassword().equals(password))
+				return i;
+		}
+		
+		return -1;
+	}
+	
 	private void createAdmin() {
 		String id = "admin";
 		String password = "1111";
