@@ -8,7 +8,7 @@ public class Main {
 		
 		
 		// Shop Project
-		// class : Item, ItemManager, User, UserManager, Cart, FileManager Shop
+		// class : Item, ItemManager, User, UserManager, Cart, FileManager, Shop
 		
 		// method :
 		
@@ -22,9 +22,6 @@ public class Main {
 		// 관리자
 		// ㄴ 아이템등록/삭제/수정/
 		// ㄴ 조회(총 매출)
-		
-		
-		
 	}
 
 }
