@@ -15,6 +15,24 @@ public class Shop {
 	private String brand;
 	private int log;
 	
+	private int inputNumber(String message) {
+		int number = -1;
+		System.out.print(message + " : ");
+		
+		try {
+			String input = sc.next();
+			number = Integer.parseInt(input);
+		} catch (Exception e) {
+			System.err.println("숫자만 입력하세요.");
+		}
+		
+		return number;
+	}
+	
+	private String inputString(String message) {
+		System.out.print(message + " : ");
+		return sc.next();
+	}
 	
 	public Shop(String brand) {
 		this.brand = brand;
@@ -36,6 +54,7 @@ public class Shop {
 			System.out.println("3.아이템수정");
 		}
 	}
+	
 	private boolean isRun() {
 		return true;
 	}
