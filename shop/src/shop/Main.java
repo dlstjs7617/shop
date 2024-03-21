@@ -6,7 +6,6 @@ public class Main {
 		Shop shop = new Shop("Mega");
 		shop.run();
 		
-		
 		// Shop Project
 		// class : Item, ItemManager, User, UserManager, Cart, FileManager, Shop
 		
