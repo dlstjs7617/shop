@@ -15,7 +15,7 @@ public class UserManager {
 	public int findIndexById(String id) {
 		for(int i=0; i<list.size(); i++) {
 			User user = list.get(i);
-			if(temp.getId().equals(id))
+			if(user.getId().equals(id))
 				return i;
 		}
 		
