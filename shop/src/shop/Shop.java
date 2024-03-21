@@ -80,10 +80,23 @@ public class Shop {
 		
 	}
 	
-	private void leave() {
-		log = -1;
+	private void addItem() {
+		String name = inputString("제품명");
+		String brand = inputString("제조사");
+		int price = inputNumber("가격");
 		
+		itemManager.createItem(name, brand, price);
+	}
+	
+	private void leave() {
+		userManager.deleteUser(log);
+		log = IS_LOGGED_IN;
 		System.out.println("회원 탈퇴 완료");
+	}
+	
+	private void logout() {
+		log = IS_LOGGED_IN;
+		System.out.println("로그아웃 하셨습니다.");
 	}
 	
 	private void selectMenu() {
@@ -95,15 +108,15 @@ public class Shop {
 			else if(select == LOG_IN)
 				login();
 		}else if(log == IS_LOGIN_ADMIN) {
-//			if(select == ADD_ITEM)
-//				addItem();
+			if(select == ADD_ITEM)
+				addItem();
 //			else if(select == DELETE_ITEM)
 //				deleteItem();
 //			else if(select == UPDATE_ITEM)
 //				updateITEM();
-//			else if(select == LOG_OUT)
-//				logout();
-//			
+			else if(select == LOG_OUT)
+				logout();
+			
 		}else if(log != IS_LOGGED_IN) {
 			if(select == LEAVE) 
 				leave();
@@ -111,8 +124,8 @@ public class Shop {
 //				shopping();
 //			else if(select == MY_PAGE)
 //				myPage();
-//			else if(select == LOG_OUT)
-//				logout();
+			else if(select == LOG_OUT)
+				logout();
 		}
 	}
 	
