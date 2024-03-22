@@ -43,7 +43,7 @@ public class Item {
 	
 	@Override
 	public String toString() {
-		return String.format("%s(%s) : %d", name,brand,price);
+		return String.format("%s(%s) : %d  %s", name, brand, price, amount == 0 ? "" : amount+"개");
 	}
 	
 }
