@@ -43,6 +43,11 @@ public class UserManager {
 		user.getCart().deleteList(index);
 	}
 	
+	public void setAmount(int log, int index, int amount) {
+		User user = list.get(log);
+		user.getCart().updateList(index, amount);
+	}
+	
 	private void createAdmin() {
 		String id = "admin";
 		String password = "1111";
