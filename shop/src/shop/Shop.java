@@ -32,12 +32,14 @@ public class Shop {
 
 	private String brand;
 	private int log;
+	private int result;
 
 	public Shop(String brand) {
 		this.brand = brand;
 		userManager = new UserManager();
 		itemManager = new ItemManager();
 		log = -1;
+		result = 0;
 	}
 	
 	private int inputNumber(String message) {
@@ -167,6 +169,12 @@ public class Shop {
 		userManager.setAmount(log, idx, amount);
 	}
 	
+	private void buy() {
+		int money = userManager.buy(log);
+		result += money;
+		System.out.printf("%d원 결제되셨습니다. \n", money);
+	}
+	
 	private void printMyPage() {
 		System.out.println("1.내 장바구니");
 		System.out.println("2.항목삭제");
@@ -184,7 +192,7 @@ public class Shop {
 		else if(sel == SET_AMOUNT)
 			setAmount();
 		else if(sel == BUY)
-			;
+			buy();
 	}
 	
 	private void myPage() {
