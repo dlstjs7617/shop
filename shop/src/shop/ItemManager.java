@@ -49,8 +49,9 @@ public class ItemManager {
 			
 			result += item.getName() + ",";
 			result += item.getBrand()+ ",";
-			result += item.getPrice()+ ",";
-			result += "\n";
+			result += item.getPrice();
+			if(i != list.size()-1)
+				result += "\n";
 		}
 		return result;
 	}
