@@ -125,8 +125,10 @@ public class Cart {
 		if(idx == -1) {
 			return;
 		}
+		int amount = list.get(idx).getAmount();
 		Item newItem = new Item(item);
 		list.set(idx, newItem);
+		list.get(idx).setAmount(amount);
 	}
 	
 	public void deleteList(int idx) {
