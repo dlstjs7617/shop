@@ -28,6 +28,20 @@ public class Cart {
 		
 		return -1;
 	}
+	private int findItem(String name, String brand, int price) {
+		for(int i=0; i<list.size(); i++) {
+			Item getItem = list.get(i);
+		
+			if(getItem.getName().equals(name) && 
+			   getItem.getBrand().equals(brand) && 
+			   getItem.getPrice() == price) {
+				return i;
+			}
+			
+		}
+		
+		return -1;
+	}
 	
 	public boolean exceptionIdx(int idx) {
 		if(idx < 0 || idx >= list.size()) {
@@ -102,6 +116,18 @@ public class Cart {
 		
 		item.setAmount(amount);
 		System.out.println("수량변경완료");
+	}
+	
+	public void updateList(String name, String brand, int price, Item item) {
+		int idx = findItem(name, brand, price)-1;
+		
+		String tempName = item.getName();
+		String tempBrand = item.getBrand();
+		int tempPrice = item.getPrice();
+		int amount = list.get(idx).getAmount();
+		
+		Item temp = new Item(tempBrand, tempName, tempPrice, amount);
+		list.set(idx, temp);
 	}
 	
 	public void deleteList(int idx) {
