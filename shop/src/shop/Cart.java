@@ -29,6 +29,12 @@ public class Cart {
 		return -1;
 	}
 	
+	public void printCart() {
+		for(int i=0; i<list.size(); i++) {
+			System.out.println(i + "번." +list.get(i));
+		}
+	}
+	
 	public void createList(Item item) {
 		
 		if(findItem(item) == -1) {			
