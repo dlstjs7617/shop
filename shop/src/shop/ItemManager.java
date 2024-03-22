@@ -39,6 +39,11 @@ public class ItemManager {
 	public String saveFile() {
 		String result = "";
 		
+		if(list.size() == 0) {
+			result += "null";
+			return result;
+		}
+		
 		for(int i=0; i<list.size(); i++) {
 			Item item = list.get(i);
 			
