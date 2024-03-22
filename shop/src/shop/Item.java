@@ -12,6 +12,14 @@ public class Item {
 		this.brand = brand;
 		this.price = price;
 	}
+	
+	public Item(String brand, String name, int price, int amount) {
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.amount = amount;
+	}
+
 
 	public String getName() {
 		return name;
@@ -22,7 +30,15 @@ public class Item {
 	}
 
 	public int getPrice() {
-		return price;
+		return this.price;
+	}
+	
+	public int getAmount() {
+		return this.amount;
+	}
+	
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 	
 	@Override
