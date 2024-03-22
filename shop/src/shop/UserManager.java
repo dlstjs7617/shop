@@ -53,6 +53,20 @@ public class UserManager {
 		return user.getCart().buy();
 	}
 	
+	public String saveFile() {
+		String result = "";
+		
+		for(int i=0; i<list.size(); i++){
+			User user = list.get(i);
+			result += user.getId() + ",";
+			result += user.getPassword() + ",";			
+			result += user.getName() + ",";
+			result += user.getCart().saveCart() +"\n";			
+		}
+		result = result.substring(0,result.length()-1);
+		return result;
+	}
+	
 	private void createAdmin() {
 		String id = "admin";
 		String password = "1111";
