@@ -57,8 +57,11 @@ public class UserManager {
 		return result;
 	}
 	
-	public void updateUser() {
-		//
+	public void updateUser(int log,Item item) {
+		User user = list.get(log);
+		Cart cart = user.getCart();
+		
+		cart.createList(item);
 	}
 	
 	public void deleteUser(int log) {
