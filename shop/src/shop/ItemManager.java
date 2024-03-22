@@ -57,6 +57,13 @@ public class ItemManager {
 		System.out.println("아이템 삭제 완료");
 	}
 	
-	
+	public void updateItem(int idx, Item item) {
+		if(exceptionIndex(idx)) {
+			return;
+		}
+		
+		list.set(idx, item);
+		System.out.println("상품 수정 완료");
+	}
 	
 }
