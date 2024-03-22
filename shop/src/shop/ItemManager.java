@@ -35,7 +35,6 @@ public class ItemManager {
 			System.out.println(i + "번. " + list.get(i));
 		}
 	}
-	
 
 	public void createItem(String name, String brand, int price) {
 		if(checkItem(name, brand)) {
@@ -46,6 +45,17 @@ public class ItemManager {
 		}else {
 			System.err.println("이미 있는 상품입니다");
 		}
+	}
+	
+	public Item readItem(int idx, int amount) {
+		if(exceptionIndex(idx)) {
+			return null;
+		}
+		
+		Item item = list.get(idx);
+		Item result = new Item(item.getBrand(), item.getName(), item.getPrice(), amount);
+		
+		return result;
 	}
 	
 	public void deleteItem(int idx) {
