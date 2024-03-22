@@ -33,6 +33,11 @@ public class UserManager {
 		return -1;
 	}
 	
+	public void printMyCart(int log) {
+		User user = list.get(log);
+		user.getCart().printCart();
+	}
+	
 	private void createAdmin() {
 		String id = "admin";
 		String password = "1111";
