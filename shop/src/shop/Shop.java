@@ -96,10 +96,22 @@ public class Shop {
 
 	}
 	
-	private void leave() {
-		userManager.deleteUser(log);
-		log = IS_LOGGED_IN;
-		System.out.println("회원 탈퇴 완료");
+	private void updateItem() {
+		itemManager.printAllItem();
+		int index = inputNumber("수정할 상품 인덱스");
+		
+		String name = inputString("상품명");
+		String brand = inputString("제조사");
+		int price = inputNumber("가격");
+		
+		if(price <= 0) {
+			System.err.println("유효하지 않은 가격입니다.");
+			return;
+		}
+		
+		Item item = new  Item(brand, name, price);
+		
+		itemManager.updateItem(index, item);
 	}
 	
 	private void logout() {
@@ -107,6 +119,12 @@ public class Shop {
 		System.out.println("로그아웃 하셨습니다.");
 	}
 	
+	
+	private void leave() {
+		userManager.deleteUser(log);
+		log = IS_LOGGED_IN;
+		System.out.println("회원 탈퇴 완료");
+	}
 	private void selectMenu() {
 		int select = inputNumber("메뉴");
 		
@@ -120,8 +138,8 @@ public class Shop {
 				addItem();
 			else if(select == DELETE_ITEM)
 				deleteItem();
-//			else if(select == UPDATE_ITEM)
-//				updateITEM();
+			else if(select == UPDATE_ITEM)
+				updateItem();
 			else if(select == LOG_OUT)
 				logout();
 			
