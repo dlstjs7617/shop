@@ -60,10 +60,10 @@ public class UserManager {
 		return user.getCart().buy();
 	}
 	
-	public void updateAllItem(String name, String brand, int price, Item item) {
-		for(int i=0; i<list.size(); i++) {
+	public void updateAllItem(Item temp, Item item) {
+		for(int i=1; i<list.size(); i++) {
 			User user = list.get(i);
-			user.getCart().updateList(name, brand, price, item);
+			user.getCart().updateList(temp, item);
 		}
 	}
 	

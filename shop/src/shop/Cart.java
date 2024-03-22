@@ -17,7 +17,9 @@ public class Cart {
 			String name = item.getName();
 			String brand = item.getBrand();
 			int price = item.getPrice();
-			
+			System.out.println(name);
+			System.out.println(brand);
+			System.out.println(price);
 			if(getItem.getName().equals(name) && 
 			   getItem.getBrand().equals(brand) && 
 			   getItem.getPrice() == price) {
@@ -118,16 +120,13 @@ public class Cart {
 		System.out.println("수량변경완료");
 	}
 	
-	public void updateList(String name, String brand, int price, Item item) {
-		int idx = findItem(name, brand, price)-1;
-		
-		String tempName = item.getName();
-		String tempBrand = item.getBrand();
-		int tempPrice = item.getPrice();
-		int amount = list.get(idx).getAmount();
-		
-		Item temp = new Item(tempBrand, tempName, tempPrice, amount);
-		list.set(idx, temp);
+	public void updateList(Item temp, Item item) {
+		int idx = findItem(temp);
+		if(idx == -1) {
+			return;
+		}
+		Item newItem = new Item(item);
+		list.set(idx, newItem);
 	}
 	
 	public void deleteList(int idx) {
@@ -139,6 +138,9 @@ public class Cart {
 	}
 	public void deleteList(Item item) {
 		int idx = findItem(item);
-		list.remove(idx);
+		if(idx != -1) {
+			list.remove(idx);			
+		}
+		
 	}
 }

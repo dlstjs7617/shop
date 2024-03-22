@@ -82,7 +82,7 @@ public class ItemManager {
 		}
 		
 		Item item = list.get(idx);
-		Item result = new Item(item.getBrand(), item.getName(), item.getPrice());
+		Item result = new Item(item);
 		
 		return result;
 	}

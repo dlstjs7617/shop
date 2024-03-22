@@ -108,9 +108,12 @@ public class Shop {
 		
 		
 		Item item = itemManager.readItem(index);
-		itemManager.deleteItem(index);
+		if(item != null) {
+			Item newItem = new Item(item);
+			userManager.deleteMyCartItem(newItem);
+			itemManager.deleteItem(index);			
+		}
 		
-		userManager.deleteUser(index);
 	}
 	
 	private void updateItem() {
@@ -126,10 +129,11 @@ public class Shop {
 			return;
 		}
 		
-		Item item = new  Item(brand, name, price);
+		Item item = new Item(brand, name, price);
+		Item temp = itemManager.readItem(index);
+		userManager.updateAllItem(temp, item);
 		
 		itemManager.updateItem(index, item);
-		userManager.updateAllItem(name, brand, price, item);
 		
 		
 	}
@@ -279,7 +283,7 @@ public class Shop {
 	}
 	
 	private void autoLoad() {
-		fileManager.autoLoad();
+//		fileManager.autoLoad();
 	}
 	
 	private boolean isRun() {

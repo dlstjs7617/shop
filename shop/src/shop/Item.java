@@ -19,6 +19,12 @@ public class Item {
 		this.price = price;
 		this.amount = amount;
 	}
+	
+	public Item(Item item) {
+		this.name = item.getName();
+		this.brand = item.getBrand();
+		this.price = item.getPrice();
+	}
 
 
 	public String getName() {
