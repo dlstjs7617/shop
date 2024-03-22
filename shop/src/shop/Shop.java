@@ -106,8 +106,11 @@ public class Shop {
 		itemManager.printAllItem();
 		int index = inputNumber("삭제할 상품 인덱스");
 		
+		
+		Item item = itemManager.readItem(index);
 		itemManager.deleteItem(index);
-
+		
+		userManager.deleteUser(index);
 	}
 	
 	private void updateItem() {
@@ -126,7 +129,6 @@ public class Shop {
 		Item item = new  Item(brand, name, price);
 		
 		itemManager.updateItem(index, item);
-		// 유저 장바구니변경도 추가예정
 		userManager.updateAllItem(name, brand, price, item);
 		
 		
