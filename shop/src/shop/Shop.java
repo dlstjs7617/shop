@@ -30,7 +30,7 @@ public class Shop {
 	
 	private UserManager userManager;
 	private ItemManager itemManager;
-
+	private FileManager fileManager;
 	private String brand;
 	private int log;
 	private int result;
@@ -39,6 +39,7 @@ public class Shop {
 		this.brand = brand;
 		userManager = new UserManager();
 		itemManager = new ItemManager();
+		fileManager = new FileManager();
 		log = -1;
 		result = 0;
 	}
@@ -254,6 +255,7 @@ public class Shop {
 			System.out.println("4.로그아웃");
 			System.out.println("5.현재 매출 확인");			
 		}else if(log != IS_LOGGED_IN) {
+			System.out.println(brand + "쇼핑몰");
 			System.out.println("1.탈퇴");
 			System.out.println("2.쇼핑하기");
 			System.out.println("3.마이페이지");
@@ -261,13 +263,23 @@ public class Shop {
 		}
 	}
 	
+	private void autoSave() {
+		fileManager.autoSave(userManager, itemManager);
+	}
+	
+	private void autoLoad() {
+		
+	}
+	
 	private boolean isRun() {
 		return true;
 	}
 	private void shopRun() {
 		while(isRun()) {
+			autoLoad();
 			printMenu();
 			selectMenu();
+			autoSave();
 		}
 	}
 	
