@@ -35,12 +35,16 @@ public class Cart {
 			list.add(item);
 			System.out.println("장바구니에 담겼습니다");
 		}else if(findItem(item) != -1) {
-			int idx = findItem(item);
-			Item temp = list.get(idx); 
-			temp.setAmount(temp.getAmount() + item.getAmount());
-			System.out.println("장바구니에 수량이 추가되었습니다.");
+			updatelist(item);
 		}
 		
+	}
+	
+	private void updatelist(Item item) {
+		int idx = findItem(item);
+		Item temp = list.get(idx); 
+		temp.setAmount(temp.getAmount() + item.getAmount());
+		System.out.println("장바구니에 수량이 추가되었습니다.");
 	}
 	
 }
