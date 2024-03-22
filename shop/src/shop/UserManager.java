@@ -43,6 +43,13 @@ public class UserManager {
 		user.getCart().deleteList(index);
 	}
 	
+	public void deleteMyCartItem(Item item) {
+		for(int i=0; i<list.size(); i++) {
+			User user = list.get(i);
+			user.getCart().deleteList(item);
+		}
+	}
+	
 	public void setAmount(int log, int index, int amount) {
 		User user = list.get(log);
 		user.getCart().updateList(index, amount);
