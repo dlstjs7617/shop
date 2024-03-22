@@ -133,7 +133,36 @@ public class Shop {
 		Item item = itemManager.readItem(idx, amount);
 		userManager.updateUser(log, item);
 		
+	}
+	
+	private void printMyPage() {
+		System.out.println("1.내 장바구니");
+		System.out.println("2.항목삭제");
+		System.out.println("3.수량수정");
+		System.out.println("4.결제");
+	}
+	
+	private final int MY_CART = 1;
+	private final int DELETE_CART_ITEM = 2;
+	private final int SET_AMOUNT = 3;
+	private final int BUY = 4;
+	
+	private void runMyPage() {
+		int sel = inputNumber("메뉴 선택");
 		
+		if(sel == MY_CART) 
+			printMyCart();
+		else if(sel == DELETE_CART_ITEM)
+			;
+		else if(sel == SET_AMOUNT)
+			;
+		else if(sel == BUY)
+			;
+	}
+	
+	private void myPage() {
+		printMyPage();
+		runMyPage();
 	}
 	
 	private void leave() {
@@ -164,8 +193,8 @@ public class Shop {
 				leave();
 			else if(select == SHOPPING) 
 				shopping();
-//			else if(select == MY_PAGE)
-//				myPage();
+			else if(select == MY_PAGE)
+				myPage();
 			else if(select == LOG_OUT)
 				logout();
 		}
