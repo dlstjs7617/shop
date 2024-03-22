@@ -35,6 +35,20 @@ public class ItemManager {
 			System.out.println(i + "번. " + list.get(i));
 		}
 	}
+	
+	public String saveFile() {
+		String result = "";
+		
+		for(int i=0; i<list.size(); i++) {
+			Item item = list.get(i);
+			
+			result += item.getName() + ",";
+			result += item.getBrand()+ ",";
+			result += item.getPrice()+ ",";
+			result += "\n";
+		}
+		return result;
+	}
 
 	public void createItem(String name, String brand, int price) {
 		if(checkItem(name, brand)) {
