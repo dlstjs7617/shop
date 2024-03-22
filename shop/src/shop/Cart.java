@@ -45,6 +45,16 @@ public class Cart {
 		}
 	}
 	
+	public int buy() {
+		int total = 0;
+		for(int i=0; i<list.size(); i++) {
+			Item item = list.get(i);
+			total += item.getPrice() * item.getAmount();
+		}
+		list.clear();
+		return total;
+	}
+	
 	public void createList(Item item) {
 		
 		if(findItem(item) == -1) {			
