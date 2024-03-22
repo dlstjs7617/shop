@@ -55,6 +55,22 @@ public class Cart {
 		return total;
 	}
 	
+	public String saveCart() {
+		String result = "";
+		
+		for(int i=0; i<list.size(); i++) {
+			Item item = list.get(i);
+			
+			result += item.getName() +",";
+			result += item.getBrand() + ",";
+			result += item.getPrice() + ",";
+			result += item.getAmount() + ",";
+		}
+		result = result.substring(0, result.length()-1);
+		
+		return result;
+	}
+	
 	public void createList(Item item) {
 		
 		if(findItem(item) == -1) {			
