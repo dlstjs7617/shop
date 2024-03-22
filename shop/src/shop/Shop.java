@@ -18,6 +18,7 @@ public class Shop {
 	private final int ADD_ITEM = 1;
 	private final int DELETE_ITEM = 2;
 	private final int UPDATE_ITEM = 3;
+	private final int TOTAL = 5;
 	
 	private final int MY_CART = 1;
 	private final int DELETE_CART_ITEM = 2;
@@ -128,6 +129,10 @@ public class Shop {
 		System.out.println("로그아웃 하셨습니다.");
 	}
 	
+	private void total() {
+		System.out.printf("현재 총매출 %d원 \n",result);
+	}
+	
 	private void shopping() {
 		itemManager.printAllItem();
 		
@@ -170,6 +175,7 @@ public class Shop {
 	}
 	
 	private void buy() {
+		userManager.printMyCart(log);
 		int money = userManager.buy(log);
 		result += money;
 		System.out.printf("%d원 결제되셨습니다. \n", money);
@@ -222,6 +228,8 @@ public class Shop {
 				updateItem();
 			else if(select == LOG_OUT)
 				logout();
+			else if(select == TOTAL)
+				total();
 			
 		}else if(log != IS_LOGGED_IN) {
 			if(select == LEAVE) 
