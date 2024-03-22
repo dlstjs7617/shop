@@ -255,7 +255,9 @@ public class Shop {
 			System.out.println("4.로그아웃");
 			System.out.println("5.현재 매출 확인");			
 		}else if(log != IS_LOGGED_IN) {
+			System.out.println("==============");
 			System.out.println(brand + "쇼핑몰");
+			System.out.println("==============");
 			System.out.println("1.탈퇴");
 			System.out.println("2.쇼핑하기");
 			System.out.println("3.마이페이지");
@@ -268,7 +270,7 @@ public class Shop {
 	}
 	
 	private void autoLoad() {
-		
+		fileManager.autoLoad();
 	}
 	
 	private boolean isRun() {
