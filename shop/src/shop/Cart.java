@@ -29,6 +29,16 @@ public class Cart {
 		return -1;
 	}
 	
+	public boolean exceptionIdx(int idx) {
+		if(idx < 0 || idx >= list.size()) {
+			System.err.println("유요하지 않는 번호입니다.");
+			return true;
+		}
+		
+		return false;
+	}
+	
+	
 	public void printCart() {
 		for(int i=0; i<list.size(); i++) {
 			System.out.println(i + "번." +list.get(i));
@@ -53,4 +63,12 @@ public class Cart {
 		System.out.println("장바구니에 수량이 추가되었습니다.");
 	}
 	
+	
+	public void deleteList(int idx) {
+		if(exceptionIdx(idx))
+			return;
+		
+		list.remove(idx);
+		System.out.println("삭제완료");
+	}
 }
