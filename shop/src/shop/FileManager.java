@@ -70,10 +70,8 @@ public class FileManager {
 			String name = temp[2];
 			
 			userManager.createUser(name, id, password);
-			System.out.println("temp[3] : "+temp[3]);
-			System.out.println(temp.length + "의 길이");
+			
 			if(!temp[3].equals("null")) {
-				System.out.println("for문 전");
 				for(int j=3; j<temp.length; j+=4) {
 					String itemName = temp[j];
 					String itemBrand = temp[j+1];
