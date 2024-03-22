@@ -76,6 +76,16 @@ public class ItemManager {
 		
 		return result;
 	}
+	public Item readItem(int idx) {
+		if(exceptionIndex(idx)) {
+			return null;
+		}
+		
+		Item item = list.get(idx);
+		Item result = new Item(item.getBrand(), item.getName(), item.getPrice());
+		
+		return result;
+	}
 	
 	public void deleteItem(int idx) {
 		if(exceptionIndex(idx)) {
