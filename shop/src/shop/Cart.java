@@ -29,18 +29,18 @@ public class Cart {
 		return -1;
 	}
 	
-	public void createlist(Item item) {
+	public void createList(Item item) {
 		
 		if(findItem(item) == -1) {			
 			list.add(item);
 			System.out.println("장바구니에 담겼습니다");
 		}else if(findItem(item) != -1) {
-			updatelist(item);
+			updateList(item);
 		}
 		
 	}
 	
-	private void updatelist(Item item) {
+	private void updateList(Item item) {
 		int idx = findItem(item);
 		Item temp = list.get(idx); 
 		temp.setAmount(temp.getAmount() + item.getAmount());
