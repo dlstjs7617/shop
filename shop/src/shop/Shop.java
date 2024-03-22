@@ -252,6 +252,7 @@ public class Shop {
 			System.out.println("2.아이템삭제");
 			System.out.println("3.아이템수정");
 			System.out.println("4.로그아웃");
+			System.out.println("5.현재 매출 확인");			
 		}else if(log != IS_LOGGED_IN) {
 			System.out.println("1.탈퇴");
 			System.out.println("2.쇼핑하기");
