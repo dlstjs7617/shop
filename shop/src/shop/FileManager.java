@@ -16,10 +16,11 @@ public class FileManager {
 		file = new File(fileName);
 	}
 	
-	public void autoSave(UserManager userManager, ItemManager itemManager) {
+	public void autoSave(int result,UserManager userManager, ItemManager itemManager) {
 		String save = "";
-		save += userManager.saveFile() +"^";
+		save += result + "^";
 		save += itemManager.saveFile() +"^";
+		save += userManager.saveFile();
 		
 		try {
 			fw = new FileWriter(file);
