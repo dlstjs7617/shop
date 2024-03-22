@@ -33,7 +33,7 @@ public class FileManager {
 		resetSave();
 		String save = "";
 		save += result + ":";
-		save += itemManager.saveFile() +":";
+		save += itemManager.saveFile() +":"; 
 		save += userManager.saveFile();
 		
 		try {
@@ -70,16 +70,18 @@ public class FileManager {
 			String name = temp[2];
 			
 			userManager.createUser(name, id, password);
-			
+			System.out.println("temp[3] : "+temp[3]);
+			System.out.println(temp.length + "의 길이");
 			if(!temp[3].equals("null")) {
-				for(int j=3; j<temp.length/4; j+=4) {
+				System.out.println("for문 전");
+				for(int j=3; j<temp.length; j+=4) {
 					String itemName = temp[j];
 					String itemBrand = temp[j+1];
 					int itemPrice = Integer.parseInt(temp[j+2]);
 					int Amount = Integer.parseInt(temp[j+3]);
 					
 					Item item = new Item(itemBrand, itemName, itemPrice, Amount);
-					userManager.updateUser(i+1, item);
+					userManager.updateUser(i, item);
 				}
 				
 			}
