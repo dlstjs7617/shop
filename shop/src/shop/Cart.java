@@ -59,6 +59,7 @@ public class Cart {
 		String result = "";
 		
 		if(list.size() == 0) {
+			result += "null";
 			return result;
 		}
 		
