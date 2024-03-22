@@ -48,6 +48,11 @@ public class UserManager {
 		user.getCart().updateList(index, amount);
 	}
 	
+	public int buy(int log) {
+		User user = list.get(log);
+		return user.getCart().buy();
+	}
+	
 	private void createAdmin() {
 		String id = "admin";
 		String password = "1111";
