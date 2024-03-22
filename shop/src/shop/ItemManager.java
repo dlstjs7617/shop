@@ -32,7 +32,7 @@ public class ItemManager {
 	
 	public void printAllItem() {
 		for(int i=0; i<list.size(); i++) {
-			System.out.println(i + "번" + list.get(i));
+			System.out.println(i + "번. " + list.get(i));
 		}
 	}
 	
