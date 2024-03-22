@@ -137,4 +137,8 @@ public class Cart {
 		list.remove(idx);
 		System.out.println("삭제완료");
 	}
+	public void deleteList(Item item) {
+		int idx = findItem(item);
+		list.remove(idx);
+	}
 }
