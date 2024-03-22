@@ -31,7 +31,7 @@ public class Cart {
 	
 	public boolean exceptionIdx(int idx) {
 		if(idx < 0 || idx >= list.size()) {
-			System.err.println("유요하지 않는 번호입니다.");
+			System.err.println("유효하지 않는 번호입니다.");
 			return true;
 		}
 		
@@ -63,6 +63,15 @@ public class Cart {
 		System.out.println("장바구니에 수량이 추가되었습니다.");
 	}
 	
+	public void updateList(int index, int amount) {
+		if(exceptionIdx(index))
+			return;
+		
+		Item item = list.get(index);
+		
+		item.setAmount(amount);
+		System.out.println("수량변경완료");
+	}
 	
 	public void deleteList(int idx) {
 		if(exceptionIdx(idx))
