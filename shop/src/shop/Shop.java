@@ -283,15 +283,15 @@ public class Shop {
 	}
 	
 	private void autoLoad() {
-//		fileManager.autoLoad();
+		this.result = fileManager.autoLoad(userManager, itemManager);
 	}
 	
 	private boolean isRun() {
 		return true;
 	}
 	private void shopRun() {
+		autoLoad();
 		while(isRun()) {
-			autoLoad();
 			printMenu();
 			selectMenu();
 			autoSave();
