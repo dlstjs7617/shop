@@ -264,7 +264,7 @@ public class Shop {
 	}
 	
 	private void autoSave() {
-		fileManager.autoSave(userManager, itemManager);
+		fileManager.autoSave(result,userManager, itemManager);
 	}
 	
 	private void autoLoad() {
