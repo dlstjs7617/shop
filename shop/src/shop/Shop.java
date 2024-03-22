@@ -145,6 +145,14 @@ public class Shop {
 		userManager.printMyCart(log);
 	}
 	
+	private void deleteMyItem() {
+		printMyCart();
+		
+		int idx = inputNumber("삭제할 상품 인덱스 입력");
+		
+		userManager.deleteMyCartItem(log, idx);
+	}
+	
 	private void printMyPage() {
 		System.out.println("1.내 장바구니");
 		System.out.println("2.항목삭제");
@@ -158,7 +166,7 @@ public class Shop {
 		if(sel == MY_CART) 
 			printMyCart();
 		else if(sel == DELETE_CART_ITEM)
-			;
+			deleteMyItem();
 		else if(sel == SET_AMOUNT)
 			;
 		else if(sel == BUY)
