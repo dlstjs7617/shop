@@ -1,7 +1,5 @@
 package shop;
 
-import java.util.ArrayList;
-
 public class User {
 	
 	private String name;
@@ -27,6 +25,10 @@ public class User {
 
 	public String getPassword() {
 		return password;
+	}
+	
+	public Cart getCart() {
+		return cart;
 	}
 
 	public void setPassword(String password) {
