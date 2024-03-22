@@ -153,6 +153,20 @@ public class Shop {
 		userManager.deleteMyCartItem(log, idx);
 	}
 	
+	private void setAmount() {
+		printMyCart();
+		
+		int idx = inputNumber("수량변경할 상품 인덱스 입력");
+		int amount = inputNumber("변경할 수량 입력");
+		
+		if(amount <=0) {
+			System.err.println("유효하지않는 수량");
+			return;
+		}
+		
+		userManager.setAmount(log, idx, amount);
+	}
+	
 	private void printMyPage() {
 		System.out.println("1.내 장바구니");
 		System.out.println("2.항목삭제");
@@ -168,7 +182,7 @@ public class Shop {
 		else if(sel == DELETE_CART_ITEM)
 			deleteMyItem();
 		else if(sel == SET_AMOUNT)
-			;
+			setAmount();
 		else if(sel == BUY)
 			;
 	}
