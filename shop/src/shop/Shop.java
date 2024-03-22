@@ -112,6 +112,7 @@ public class Shop {
 		Item item = new  Item(brand, name, price);
 		
 		itemManager.updateItem(index, item);
+		// 유저 장바구니변경도 추가예정
 	}
 	
 	private void logout() {
@@ -119,6 +120,21 @@ public class Shop {
 		System.out.println("로그아웃 하셨습니다.");
 	}
 	
+	private void shopping() {
+		itemManager.printAllItem();
+		
+		int idx = inputNumber("구매하실 아이템 선택");
+		int amount = inputNumber("구매할 수량 입력");
+		
+		if(itemManager.readItem(idx, amount) == null) {
+			return;
+		}
+				
+		Item item = itemManager.readItem(idx, amount);
+		userManager.updateUser(log, item);
+		
+		
+	}
 	
 	private void leave() {
 		userManager.deleteUser(log);
@@ -146,8 +162,8 @@ public class Shop {
 		}else if(log != IS_LOGGED_IN) {
 			if(select == LEAVE) 
 				leave();
-//			else if(select == SHOPPING) 
-//				shopping();
+			else if(select == SHOPPING) 
+				shopping();
 //			else if(select == MY_PAGE)
 //				myPage();
 			else if(select == LOG_OUT)
