@@ -19,6 +19,12 @@ public class Shop {
 	private final int DELETE_ITEM = 2;
 	private final int UPDATE_ITEM = 3;
 	
+	private final int MY_CART = 1;
+	private final int DELETE_CART_ITEM = 2;
+	private final int SET_AMOUNT = 3;
+	private final int BUY = 4;
+	
+	
 	private Scanner sc = new Scanner(System.in);
 	
 	private UserManager userManager;
@@ -135,17 +141,16 @@ public class Shop {
 		
 	}
 	
+	private void printMyCart() {
+		userManager.printMyCart(log);
+	}
+	
 	private void printMyPage() {
 		System.out.println("1.내 장바구니");
 		System.out.println("2.항목삭제");
 		System.out.println("3.수량수정");
 		System.out.println("4.결제");
 	}
-	
-	private final int MY_CART = 1;
-	private final int DELETE_CART_ITEM = 2;
-	private final int SET_AMOUNT = 3;
-	private final int BUY = 4;
 	
 	private void runMyPage() {
 		int sel = inputNumber("메뉴 선택");
