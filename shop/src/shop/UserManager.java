@@ -56,12 +56,6 @@ public class UserManager {
 	public String saveFile() {
 		String result = "";
 		
-		if(list.size() == 0) {
-			result += "null";
-			return result;
-		}
-		
-		
 		for(int i=0; i<list.size(); i++){
 			User user = list.get(i);
 			result += user.getId() + ",";
