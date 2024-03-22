@@ -58,6 +58,10 @@ public class Cart {
 	public String saveCart() {
 		String result = "";
 		
+		if(list.size() == 0) {
+			return result;
+		}
+		
 		for(int i=0; i<list.size(); i++) {
 			Item item = list.get(i);
 			
