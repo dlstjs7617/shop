@@ -38,6 +38,11 @@ public class UserManager {
 		user.getCart().printCart();
 	}
 	
+	public void deleteMyCartItem(int log, int index) {
+		User user = list.get(log);
+		user.getCart().deleteList(index);
+	}
+	
 	private void createAdmin() {
 		String id = "admin";
 		String password = "1111";
