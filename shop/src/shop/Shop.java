@@ -33,7 +33,7 @@ public class Shop {
 	private FileManager fileManager;
 	private String brand;
 	private int log;
-	private int result;
+	private static int result;
 
 	public Shop(String brand) {
 		this.brand = brand;
@@ -42,6 +42,10 @@ public class Shop {
 		fileManager = new FileManager();
 		log = -1;
 		result = 0;
+	}
+	
+	public static void loadResult(int total) {
+		result = total;
 	}
 	
 	private int inputNumber(String message) {
@@ -123,6 +127,9 @@ public class Shop {
 		
 		itemManager.updateItem(index, item);
 		// 유저 장바구니변경도 추가예정
+		userManager.updateAllItem(name, brand, price, item);
+		
+		
 	}
 	
 	private void logout() {
