@@ -53,6 +53,13 @@ public class UserManager {
 		return user.getCart().buy();
 	}
 	
+	public void updateAllItem(String name, String brand, int price, Item item) {
+		for(int i=0; i<list.size(); i++) {
+			User user = list.get(i);
+			user.getCart().updateList(name, brand, price, item);
+		}
+	}
+	
 	public String saveFile() {
 		String result = "";
 		
